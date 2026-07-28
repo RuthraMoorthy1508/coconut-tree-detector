@@ -28,8 +28,7 @@ class Detection(db.Model):
     tree_count = db.Column(db.Integer)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
-model = YOLO("runs/detect/train/weights/best.pt")
-
+model = YOLO("model.pt")
 
 @app.route("/", methods=["GET","POST"])
 def index():
@@ -91,4 +90,5 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
 
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
