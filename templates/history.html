@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Detection History</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+text-align:center;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:80%;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+}
+
+img{
+width:120px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🌴 Detection History</h1>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Image Name</th>
+<th>Image</th>
+<th>Prediction</th>
+<th>Tree Count</th>
+<th>Date</th>
+</tr>
+
+{% for r in records %}
+
+<tr>
+
+<td>{{r.id}}</td>
+
+<td>{{r.image_name}}</td>
+
+<td>
+<img src="{{ url_for('static', filename=r.input_image) }}">
+</td>
+
+<td>
+<img src="{{ url_for('static', filename=r.output_image) }}">
+</td>
+
+<td>{{r.tree_count}}</td>
+
+<td>{{r.date}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

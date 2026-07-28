@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['coconut_tree']
+
+roboflow:
+  workspace: ruthras-workspace
+  project: coconut-tree-detector2-evie3
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/ruthras-workspace/coconut-tree-detector2-evie3/dataset/1

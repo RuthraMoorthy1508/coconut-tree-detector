@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Coconut Tree Detector</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.container{
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+width:700px;
+margin:auto;
+}
+
+button{
+background:#2a5298;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+font-size:16px;
+}
+
+img{
+width:300px;
+margin:10px;
+border-radius:10px;
+}
+
+.images{
+display:flex;
+justify-content:center;
+}
+
+.a button {
+    margin-top: 10px;
+    background: #1e3c72;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌴 Coconut Tree Detector</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="image" required>
+<br><br>
+
+<button type="submit">Detect Trees</button>
+<br><br>
+<a href="/history">
+    <button type="button">View History</button>
+</a>
+
+</form>
+
+{% if output_image %}
+
+<h2>Detected Trees: {{count}}</h2>
+
+<div class="images">
+
+<div>
+<h3>Original</h3>
+<img src="{{ url_for('static', filename=input_image) }}">
+</div>
+
+<div>
+<h3>Prediction</h3>
+<img src="{{ url_for('static', filename=output_image) }}">
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
